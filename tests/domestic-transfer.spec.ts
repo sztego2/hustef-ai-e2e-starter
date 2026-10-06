@@ -71,7 +71,13 @@ test.describe('Domestic transfer', () => {
     await expect(review.heading).toHaveCount(0);
   });
 
-  test('Transfer fee for 10,000 HUF is 200 HUF (floor)', async ({ page }) => {
+  test('Transfer fee for 10,000 HUF is 200 HUF (floor)', async ({ page, gremlinRelease }) => {
+    // BUG: fee on release 3: expected 200 HUF (0.3% min 200), observed 300 HUF. Not healed, see heal-report.json.
+    test.fail(
+      gremlinRelease === 3,
+      'BUG: fee on release 3: expected 200 HUF (0.3% min 200), observed 300 HUF',
+    );
+
     const transfer = new TransferPage(page);
     const review = new ReviewPage(page);
 
@@ -88,7 +94,13 @@ test.describe('Domestic transfer', () => {
     await expect(review.detailRow('Total', '10,200 HUF')).toBeVisible();
   });
 
-  test('Transfer fee for 100,000 HUF is 300 HUF', async ({ page }) => {
+  test('Transfer fee for 100,000 HUF is 300 HUF', async ({ page, gremlinRelease }) => {
+    // BUG: fee on release 3: expected 300 HUF (0.3% of 100,000), observed 3,000 HUF. Not healed, see heal-report.json.
+    test.fail(
+      gremlinRelease === 3,
+      'BUG: fee on release 3: expected 300 HUF (0.3% of 100,000), observed 3,000 HUF',
+    );
+
     const transfer = new TransferPage(page);
     const review = new ReviewPage(page);
 
@@ -102,7 +114,13 @@ test.describe('Domestic transfer', () => {
     await expect(review.detailRow('Total', '100,300 HUF')).toBeVisible();
   });
 
-  test('Transfer fee for 2,000,000 HUF is 6,000 HUF (ceiling)', async ({ page }) => {
+  test('Transfer fee for 2,000,000 HUF is 6,000 HUF (ceiling)', async ({ page, gremlinRelease }) => {
+    // BUG: fee on release 3: expected 6,000 HUF (0.3% max 6,000), observed 60,000 HUF. Not healed, see heal-report.json.
+    test.fail(
+      gremlinRelease === 3,
+      'BUG: fee on release 3: expected 6,000 HUF (0.3% max 6,000), observed 60,000 HUF',
+    );
+
     const transfer = new TransferPage(page);
     const review = new ReviewPage(page);
 
@@ -117,7 +135,13 @@ test.describe('Domestic transfer', () => {
     await expect(review.detailRow('Total', '2,006,000 HUF')).toBeVisible();
   });
 
-  test('Happy path to Kiss Péter: review, PIN, confirmation', async ({ page }) => {
+  test('Happy path to Kiss Péter: review, PIN, confirmation', async ({ page, gremlinRelease }) => {
+    // BUG: fee on release 3: expected 200 HUF (0.3% min 200), observed 300 HUF. Not healed, see heal-report.json.
+    test.fail(
+      gremlinRelease === 3,
+      'BUG: fee on release 3: expected 200 HUF (0.3% min 200), observed 300 HUF',
+    );
+
     const transfer = new TransferPage(page);
     const review = new ReviewPage(page);
 

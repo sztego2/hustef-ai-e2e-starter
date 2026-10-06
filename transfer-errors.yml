@@ -1,0 +1,36 @@
+- generic [ref=f5e1]:
+  - link "Skip to main content" [ref=f5e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f5e3]:
+    - note [ref=f5e4]: Demo app for the HUSTEF 2026 workshop. Not a real bank. Do not enter real data.
+    - generic [ref=f5e5]:
+      - link "Gremlin Bank" [ref=f5e6] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f5e11]:
+        - generic [ref=f5e12]:
+          - text: Signed in as
+          - strong [ref=f5e13]: demo
+        - button "Sign out" [ref=f5e15] [cursor=pointer]
+  - main [ref=f5e16]:
+    - generic [ref=f5e17]:
+      - generic [ref=f5e18]:
+        - heading "New transfer" [level=1] [ref=f5e20]
+        - link "Back to accounts" [ref=f5e21] [cursor=pointer]:
+          - /url: /dashboard
+      - generic [ref=f5e22]:
+        - generic [ref=f5e23]:
+          - generic [ref=f5e24]
+          - generic [ref=f5e28]
+          - generic [ref=f5e32]
+          - generic [ref=f5e36]
+          - generic [ref=f5e44]
+          - button "Review transfer" [ref=f5e48] [cursor=pointer]
+        - complementary [ref=f5e49]:
+          - heading "Saved payees" [level=2] [ref=f5e50]
+          - paragraph [ref=f5e51]: Fictional payees with valid Hungarian IBANs, for practice.
+          - list [ref=f5e52]
+          - paragraph [ref=f5e65]: "Limits: up to 10,000,000 HUF per transfer and 2,000,000 HUF per day."
+  - contentinfo [ref=f5e66]:
+    - generic [ref=f5e67]:
+      - paragraph [ref=f5e68]: Gremlin Bank is a fictional bank. It exists only as practice material for test automation.
+      - paragraph [ref=f5e69]: Release 2

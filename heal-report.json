@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "createdAt": "2026-10-06T13:20:00Z",
+  "release": 3,
+  "tool": "cursor",
+  "model": "composer-2.5-fast",
+  "entries": [
+    {
+      "test": "tests/domestic-transfer.spec.ts:74 > Domestic transfer > Transfer fee for 10,000 HUF is 200 HUF (floor)",
+      "file": "tests/domestic-transfer.spec.ts",
+      "error": "Error: expect(locator).toBeVisible() failed",
+      "classification": "BUG",
+      "reason": "Domestic transfer fee rule is 0.3% of the amount, at least 200 HUF, at most 6,000 HUF. For 10,000 HUF the fee should be 200 HUF (floor); the review page shows 300 HUF and total 10,300 HUF.",
+      "change": "Added test.fail(gremlinRelease === 3) with a BUG comment. Fee and total assertions unchanged.",
+      "expectedValueChanged": false,
+      "expected": "200 HUF fee, 10,200 HUF total (0.3% min 200 HUF)",
+      "observed": "300 HUF fee, 10,300 HUF total",
+      "tracePath": "test-results/tests-domestic-transfer-Do-9c99f-0-000-HUF-is-200-HUF-floor--chromium/trace.zip",
+      "model": "composer-2.5-fast",
+      "tool": "cursor"
+    },
+    {
+      "test": "tests/domestic-transfer.spec.ts:97 > Domestic transfer > Transfer fee for 100,000 HUF is 300 HUF",
+      "file": "tests/domestic-transfer.spec.ts",
+      "error": "Error: expect(locator).toBeVisible() failed",
+      "classification": "BUG",
+      "reason": "0.3% of 100,000 HUF is 300 HUF per the business rule. Release 3 shows 3,000 HUF (~3%) and total 103,000 HUF on the review screen.",
+      "change": "Added test.fail(gremlinRelease === 3) with a BUG comment. Fee and total assertions unchanged.",
+      "expectedValueChanged": false,
+      "expected": "300 HUF fee, 100,300 HUF total (0.3% of 100,000 HUF)",
+      "observed": "3,000 HUF fee, 103,000 HUF total",
+      "tracePath": "test-results/tests-domestic-transfer-Do-bda01--for-100-000-HUF-is-300-HUF-chromium/trace.zip",
+      "model": "composer-2.5-fast",
+      "tool": "cursor"
+    },
+    {
+      "test": "tests/domestic-transfer.spec.ts:117 > Domestic transfer > Transfer fee for 2,000,000 HUF is 6,000 HUF (ceiling)",
+      "file": "tests/domestic-transfer.spec.ts",
+      "error": "Error: expect(locator).toBeVisible() failed",
+      "classification": "BUG",
+      "reason": "0.3% of 2,000,000 HUF is 6,000 HUF at the ceiling. Release 3 shows 60,000 HUF and total 2,060,000 HUF.",
+      "change": "Added test.fail(gremlinRelease === 3) with a BUG comment. Fee and total assertions unchanged.",
+      "expectedValueChanged": false,
+      "expected": "6,000 HUF fee, 2,006,000 HUF total (0.3% max 6,000 HUF)",
+      "observed": "60,000 HUF fee, 2,060,000 HUF total",
+      "tracePath": "test-results/tests-domestic-transfer-Do-3d516-0-HUF-is-6-000-HUF-ceiling--chromium/trace.zip",
+      "model": "composer-2.5-fast",
+      "tool": "cursor"
+    },
+    {
+      "test": "tests/domestic-transfer.spec.ts:138 > Domestic transfer > Happy path to Kiss Péter: review, PIN, confirmation",
+      "file": "tests/domestic-transfer.spec.ts",
+      "error": "Error: expect(locator).toBeVisible() failed",
+      "classification": "BUG",
+      "reason": "Same incorrect fee as the 10,000 HUF case: review shows 300 HUF instead of 200 HUF, so the test fails before PIN confirmation.",
+      "change": "Added test.fail(gremlinRelease === 3) with a BUG comment. All business-value assertions unchanged.",
+      "expectedValueChanged": false,
+      "expected": "200 HUF fee, 10,200 HUF total on review (0.3% min 200 HUF)",
+      "observed": "300 HUF fee, 10,300 HUF total on review",
+      "tracePath": "test-results/tests-domestic-transfer-Do-7b159-ter-review-PIN-confirmation-chromium/trace.zip",
+      "model": "composer-2.5-fast",
+      "tool": "cursor"
+    }
+  ]
+}

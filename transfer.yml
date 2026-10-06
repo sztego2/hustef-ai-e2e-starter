@@ -1,0 +1,50 @@
+- generic [active] [ref=f2e1]:
+  - link "Skip to main content" [ref=f2e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f2e3]:
+    - note [ref=f2e4]: Demo app for the HUSTEF 2026 workshop. Not a real bank. Do not enter real data.
+    - generic [ref=f2e5]:
+      - link "Gremlin Bank" [ref=f2e6] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f2e11]:
+        - generic [ref=f2e12]:
+          - text: Signed in as
+          - strong [ref=f2e13]: demo
+        - button "Sign out" [ref=f2e15] [cursor=pointer]
+  - main [ref=f2e16]:
+    - generic [ref=f2e17]:
+      - generic [ref=f2e18]:
+        - heading "New transfer" [level=1] [ref=f2e20]
+        - link "Back to accounts" [ref=f2e21] [cursor=pointer]:
+          - /url: /dashboard
+      - generic [ref=f2e22]:
+        - generic [ref=f2e23]:
+          - generic [ref=f2e24]:
+            - generic [ref=f2e25]: Amount (HUF)
+            - textbox "Amount (HUF)" [ref=f2e26]
+          - generic [ref=f2e27]:
+            - generic [ref=f2e28]: From account
+            - combobox "From account" [ref=f2e29]
+            - paragraph [ref=f2e30]: "Available: 1,250,000 HUF"
+          - generic [ref=f2e31]:
+            - generic [ref=f2e32]: Payee name
+            - textbox "Payee name" [ref=f2e33]
+          - generic [ref=f2e36]:
+            - generic [ref=f2e37]: IBAN
+            - generic [ref=f2e38]
+          - generic [ref=f2e41]:
+            - generic [ref=f2e42]: Payment reference
+            - textbox "Payment reference" [ref=f2e43]
+          - button "Review transfer" [ref=f2e45] [cursor=pointer]
+        - complementary [ref=f2e46]:
+          - heading "Saved payees" [level=2] [ref=f2e47]
+          - paragraph [ref=f2e48]: Fictional payees with valid Hungarian IBANs, for practice.
+          - list [ref=f2e49]:
+            - listitem [ref=f2e50]
+            - listitem [ref=f2e54]
+            - listitem [ref=f2e58]
+          - paragraph [ref=f2e62]: "Limits: up to 10,000,000 HUF per transfer and 2,000,000 HUF per day."
+  - contentinfo [ref=f2e63]:
+    - generic [ref=f2e64]:
+      - paragraph [ref=f2e65]: Gremlin Bank is a fictional bank. It exists only as practice material for test automation.
+      - paragraph [ref=f2e66]: Release 2

@@ -1,0 +1,42 @@
+- generic [ref=f8e1]:
+  - link "Skip to main content" [ref=f8e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f8e3]:
+    - note [ref=f8e4]: Demo app for the HUSTEF 2026 workshop. Not a real bank. Do not enter real data.
+    - generic [ref=f8e5]:
+      - link "Gremlin Bank" [ref=f8e6] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f8e11]:
+        - generic [ref=f8e12]:
+          - text: Signed in as
+          - strong [ref=f8e13]: demo
+        - button "Sign out" [ref=f8e15] [cursor=pointer]
+  - main [ref=f8e16]:
+    - generic [ref=f8e17]:
+      - heading "Review transfer" [level=1] [ref=f8e20]
+      - generic [ref=f8e21]:
+        - table "Transfer details" [ref=f8e22]:
+          - rowgroup [ref=f8e23]
+        - generic [ref=f8e44]:
+          - button "Send money" [ref=f8e45] [cursor=pointer]
+          - link "Change details" [ref=f8e46] [cursor=pointer]:
+            - /url: /transfer?edit=1
+      - dialog [ref=f8e52]:
+        - generic [ref=f8e53]:
+          - heading "Payment approval" [level=2] [ref=f8e54]
+          - button "Cancel" [active] [ref=f8e55] [cursor=pointer]
+        - iframe [ref=f8e56]:
+          - generic [ref=f9e1]:
+            - banner [ref=f9e2]:
+              - note [ref=f9e3]: Demo app for the HUSTEF 2026 workshop. Not a real bank. Do not enter real data.
+            - main [ref=f9e4]:
+              - paragraph [ref=f9e5]: Gremlin Secure
+              - heading "Approve this payment of 10,200 HUF" [level=1] [ref=f9e7]
+              - paragraph [ref=f9e8]: To Kiss Péter, HU72 9990 1017 1618 0339 8874 9892
+              - button "Approve" [ref=f9e10] [cursor=pointer]
+            - contentinfo [ref=f9e11]:
+              - paragraph [ref=f9e12]: Release 2
+  - contentinfo [ref=f8e47]:
+    - generic [ref=f8e48]:
+      - paragraph [ref=f8e49]: Gremlin Bank is a fictional bank. It exists only as practice material for test automation.
+      - paragraph [ref=f8e50]: Release 2

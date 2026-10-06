@@ -1,0 +1,35 @@
+- generic [active] [ref=f10e1]:
+  - link "Skip to main content" [ref=f10e2] [cursor=pointer]:
+    - /url: "#main"
+  - banner [ref=f10e3]:
+    - note [ref=f10e4]: Demo app for the HUSTEF 2026 workshop. Not a real bank. Do not enter real data.
+    - generic [ref=f10e5]:
+      - link "Gremlin Bank" [ref=f10e6] [cursor=pointer]:
+        - /url: /
+      - generic [ref=f10e11]:
+        - generic [ref=f10e12]:
+          - text: Signed in as
+          - strong [ref=f10e13]: demo
+        - button "Sign out" [ref=f10e15] [cursor=pointer]
+  - main [ref=f10e16]:
+    - generic [ref=f10e17]:
+      - heading "Money sent" [level=1] [ref=f10e20]
+      - generic [ref=f10e21]:
+        - generic [ref=f10e26]:
+          - paragraph [ref=f10e27]: "Reference: GB-7PGQL4"
+          - paragraph [ref=f10e28]: "Code: GRM-SENT-4M8P"
+          - paragraph [ref=f10e29]: "PIN check passed: GRM-CLOSED-8J1D"
+        - generic [ref=f10e30]:
+          - generic [ref=f10e31]
+          - generic [ref=f10e34]
+          - generic [ref=f10e37]
+          - generic [ref=f10e40]
+          - generic [ref=f10e43]
+          - generic [ref=f10e46]
+        - paragraph [ref=f10e49]:
+          - link "Back to accounts" [ref=f10e50] [cursor=pointer]:
+            - /url: /dashboard
+  - contentinfo [ref=f10e51]:
+    - generic [ref=f10e52]:
+      - paragraph [ref=f10e53]: Gremlin Bank is a fictional bank. It exists only as practice material for test automation.
+      - paragraph [ref=f10e54]: Release 2
