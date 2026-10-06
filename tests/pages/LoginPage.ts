@@ -8,18 +8,29 @@ export class LoginPage {
   readonly password: Locator;
   readonly signInButton: Locator;
   readonly alert: Locator;
+  readonly cookieDialog: Locator;
 
   constructor(page: Page) {
     this.page = page;
-    this.heading = page.getByRole('heading', { level: 1, name: 'Sign in to Gremlin Bank' });
-    this.username = page.getByRole('textbox', { name: 'Username' });
+    // Release 2+: "Welcome back" / "User ID" / "Log in" (was "Sign in to Gremlin Bank" / "Username" / "Sign in").
+    this.heading = page.getByRole('heading', { level: 1, name: 'Welcome back' });
+    this.username = page.getByRole('textbox', { name: 'User ID' });
     this.password = page.getByRole('textbox', { name: 'Password' });
-    this.signInButton = page.getByRole('button', { name: 'Sign in' });
+    this.signInButton = page.getByRole('button', { name: 'Log in' });
     this.alert = page.getByRole('alert');
+    this.cookieDialog = page.getByRole('dialog', { name: 'Cookies' });
+  }
+
+  /** Release 2+ shows a cookie consent dialog on first visit; dismiss it so the form is usable. */
+  async dismissCookiesIfShown(): Promise<void> {
+    if (await this.cookieDialog.isVisible()) {
+      await this.cookieDialog.getByRole('button', { name: 'Only necessary' }).click();
+    }
   }
 
   async goto(): Promise<void> {
     await this.page.goto('/login');
+    await this.dismissCookiesIfShown();
   }
 
   async fillCredentials(username: string, password: string): Promise<void> {

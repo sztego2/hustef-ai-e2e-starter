@@ -6,8 +6,10 @@ export class DashboardPage {
   readonly banner: Locator;
   readonly signedInAs: Locator;
   readonly signOutButton: Locator;
+  readonly accountsTable: Locator;
   readonly everydayAccount: Locator;
   readonly savingsAccount: Locator;
+  readonly paymentsButton: Locator;
   readonly newTransferLink: Locator;
   readonly recentTransactions: Locator;
   readonly loadingAccounts: Locator;
@@ -18,15 +20,23 @@ export class DashboardPage {
     this.banner = page.getByRole('banner');
     this.signedInAs = page.getByRole('banner').getByRole('strong');
     this.signOutButton = page.getByRole('button', { name: 'Sign out' });
-    this.everydayAccount = page.getByRole('region', { name: 'Everyday Account' });
-    this.savingsAccount = page.getByRole('region', { name: 'Savings Account' });
-    this.newTransferLink = page.getByRole('link', { name: 'New transfer' });
+    // Release 2+: accounts are rows in "Your accounts" (were named regions).
+    this.accountsTable = page.getByRole('table', { name: 'Your accounts' });
+    this.everydayAccount = this.accountsTable.getByRole('row', { name: /Everyday Account/ });
+    this.savingsAccount = this.accountsTable.getByRole('row', { name: /Savings Account/ });
+    // Release 2+: New transfer sits under the Payments menu.
+    this.paymentsButton = page.getByRole('button', { name: 'Payments' });
+    this.newTransferLink = page.getByRole('menuitem', { name: 'New transfer' });
     this.recentTransactions = page.getByRole('table', { name: 'Recent transactions' });
     this.loadingAccounts = page.getByText('Loading accounts…');
   }
 
   async signOut(): Promise<void> {
     await this.signOutButton.click();
+  }
+
+  async openPaymentsMenu(): Promise<void> {
+    await this.paymentsButton.click();
   }
 
   transactionRow(name: string): Locator {

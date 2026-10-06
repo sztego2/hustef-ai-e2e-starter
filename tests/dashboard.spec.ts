@@ -25,6 +25,8 @@ test.describe('Dashboard', () => {
     await expect(dashboard.savingsAccount.getByText(FRESH.savingsIban)).toBeVisible();
     await expect(dashboard.savingsAccount.getByText(FRESH.savingsBalance)).toBeVisible();
 
+    // Release 2+: New transfer is under the Payments menu.
+    await dashboard.openPaymentsMenu();
     await expect(dashboard.newTransferLink).toHaveAttribute('href', '/transfer');
   });
 

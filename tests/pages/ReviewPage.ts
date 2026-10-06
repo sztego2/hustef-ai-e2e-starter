@@ -13,9 +13,10 @@ export class ReviewPage {
     this.page = page;
     this.heading = page.getByRole('heading', { level: 1, name: 'Review transfer' });
     this.transferDetails = page.getByRole('table', { name: 'Transfer details' });
-    this.confirmTransferButton = page.getByRole('button', { name: 'Confirm transfer' });
-    this.confirmPaymentDialog = page.getByRole('dialog', { name: 'Confirm payment' });
-    this.submittedHeading = page.getByRole('heading', { level: 1, name: 'Transfer submitted' });
+    // Release 2+: Send money / Payment approval / Money sent / Approve (were Confirm transfer / Confirm payment / Transfer submitted / Approve payment).
+    this.confirmTransferButton = page.getByRole('button', { name: 'Send money' });
+    this.confirmPaymentDialog = page.getByRole('dialog', { name: 'Payment approval' });
+    this.submittedHeading = page.getByRole('heading', { level: 1, name: 'Money sent' });
   }
 
   detailRow(label: string, value: string): Locator {
@@ -35,9 +36,9 @@ export class ReviewPage {
 
     await expect(this.confirmPaymentDialog).toBeVisible();
     await this.confirmPaymentDialog
-      .getByTitle('Gremlin Secure')
+      .getByTitle('Payment approval')
       .contentFrame()
-      .getByRole('button', { name: 'Approve payment' })
+      .getByRole('button', { name: 'Approve' })
       .click();
   }
 }
