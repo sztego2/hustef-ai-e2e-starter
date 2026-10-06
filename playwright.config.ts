@@ -41,6 +41,12 @@ const DEMO_AUTH_FILE = path.resolve(__dirname, 'playwright/.auth/demo.json');
 
 const ignored = ['node_modules/**', 'labs/**', ...optIn('examples/', 'examples/**'), ...optIn('tests/walls', 'tests/walls/**')];
 
+// Installed Google Chrome. PW_CHROMIUM_PATH still wins when the download/channel is unavailable.
+const chrome = {
+  ...devices['Desktop Chrome'],
+  ...(executablePath ? {} : { channel: 'chrome' as const }),
+};
+
 export default defineConfig({
   testDir: '.',
   testIgnore: ignored,
@@ -70,21 +76,21 @@ export default defineConfig({
     // The default project: seed.spec.ts and everything you add under tests/.
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: chrome,
       testIgnore: [...ignored, '**/*.setup.ts'],
     },
     // Lab 5, wall 1: sign in once and save the browser state...
     {
       name: 'setup',
       testMatch: 'tests/walls/auth.setup.ts',
-      use: { ...devices['Desktop Chrome'] },
+      use: chrome,
     },
     // ...then start these tests already signed in.
     {
       name: 'with-auth',
       dependencies: ['setup'],
       testMatch: 'tests/walls/auth.spec.ts',
-      use: { ...devices['Desktop Chrome'], storageState: DEMO_AUTH_FILE },
+      use: { ...chrome, storageState: DEMO_AUTH_FILE },
     },
   ],
 });
